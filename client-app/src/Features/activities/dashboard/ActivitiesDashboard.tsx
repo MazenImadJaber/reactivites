@@ -14,12 +14,13 @@ interface Probs {
     closeForm: () => void;
     CreateOrEditActivity: (activity: Activity)=>void;
     DeleteActivity:(id: string) => void;
+    submitting: boolean
 
 
 }
 export default function ActivityDashboard({ activities, selectedActivity,
     selectActivity, cancelselectActivity,
-    editMode, openForm, closeForm ,CreateOrEditActivity,DeleteActivity}: Probs) {
+    editMode, openForm, closeForm ,CreateOrEditActivity,DeleteActivity, submitting}: Probs) {
     return (
         <Grid>
             <Grid.Column width='10'>
@@ -28,6 +29,7 @@ export default function ActivityDashboard({ activities, selectedActivity,
                         activities={activities}
                         selectActivity={selectActivity}
                         DeleteActivity={DeleteActivity}
+                        submitting={submitting}
                     />
                 </List>
 
@@ -47,6 +49,7 @@ export default function ActivityDashboard({ activities, selectedActivity,
                         selectedActivity={selectedActivity}
                         closeForm={closeForm}
                         CreateOrEditActivity={CreateOrEditActivity}
+                        submitting={submitting}
                     />
                 }
 
